@@ -1,7 +1,11 @@
-import fire
+from flask import Flask, render_template
 
-def hello(name="World"):
-  return "Hello %s!" % name
+app = Flask(__name__)
 
-if __name__ == '__main__':
-  fire.Fire(hello)
+@app.route("/")
+def hello_world():
+  # Render a basic HTML template
+  return render_template("index.html")
+
+if __name__ == "__main__":
+  app.run(debug=True)
